@@ -36,9 +36,9 @@ Route::get('/', function () {
         die("Could not connect to the database. Please check your configuration. error:" . $e );
     }
     return view('welcome');
-});
+})->middleware(['auth']);
 
-Route::resource('users', UsersController::class);
+Route::resource('users', UsersController::class)->middleware(['auth']);
 
-Route::resource('users.meals', UserMealsController::class);
+Route::resource('users.meals', UserMealsController::class)->middleware(['auth']);
   
