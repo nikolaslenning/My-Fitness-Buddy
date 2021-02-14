@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserMealsController extends Controller
+use App\Models\User;
+use App\Models\Meal;
+
+class MealsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,9 +24,9 @@ class UserMealsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return view('meals.create')->withUser($request->user());
     }
 
     /**
