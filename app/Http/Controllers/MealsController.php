@@ -37,11 +37,12 @@ class MealsController extends Controller
      */
     public function store(Request $request)
     {
-        $meal = new Meal();
-        $meal->name = $request->name;
+        // $meal = new Meal();
+        // $meal->name = $request->name;
+        // $meal->user_id = $request->user_id; 
         
-        $meal->save();
-        return redirect();
+        // $meal->save();
+        // return redirect();
     }
 
     /**

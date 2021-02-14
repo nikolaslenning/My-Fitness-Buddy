@@ -22,6 +22,7 @@ Create Meal
 <hr>
 <form method="post" action='/users/{{ $user->id }}/meals'>
 {{ csrf_field() }}
+<input type="hidden" name="user_id" value="{{ $user->id }}" />
     <fieldset class="form-group">
         <label for="name">Meal Name:</label>
         <input type="text" class="form-control" name="name" placeholder="Meal Name" required>

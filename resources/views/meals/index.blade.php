@@ -8,6 +8,8 @@ Meal Index
 <h4>All Meals</h4>
 <hr>
 
+{{ $meals }}
+
 <ul class="list-group">
     @foreach ($meals as $meal)
     <li class="list-group-item">

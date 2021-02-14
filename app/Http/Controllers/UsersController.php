@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Meal;
 
 class UsersController extends Controller
 {
@@ -37,7 +38,12 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $meal = new Meal();
+        $meal->name = $request->name;
+        $meal->user_id = $request->user_id; 
+        
+        $meal->save();
+        // return redirect();
     }
 
     /**
