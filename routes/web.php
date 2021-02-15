@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use Illuminate\Support\Facades\DB;
 
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\FoodsController;
 use App\Http\Controllers\MealsController;
 
 /*
@@ -38,7 +38,8 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware(['auth']);
 
-Route::post('users/{user}/meals', [UsersController::class, 'store'])->middleware(['auth']);
+Route::post('users/{user}/meals', [MealsController::class, 'store'])->middleware(['auth']);
 
 Route::resource('meals', MealsController::class)->middleware(['auth']);
-  
+
+Route::post('meals/{meal}/foods', [FoodsController::class, 'store'])->middleware(['auth']);

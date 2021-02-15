@@ -37,12 +37,13 @@ class MealsController extends Controller
      */
     public function store(Request $request)
     {
-        // $meal = new Meal();
-        // $meal->name = $request->name;
-        // $meal->user_id = $request->user_id; 
+        $meal = new Meal();
+        $meal->name = $request->name;
+        $meal->user_id = $request->user_id; 
         
-        // $meal->save();
-        // return redirect();
+        $meal->save();
+        // return redirect()->back();
+        return view('meals.index')->withMeals($request->user()->meals);
     }
 
     /**
@@ -53,7 +54,9 @@ class MealsController extends Controller
      */
     public function show($id)
     {
-        //
+        $meal = Meal::find($id);
+
+        return view('meals.show', compact('meal'));
     }
 
     /**

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Meal;
 
-class UsersController extends Controller
+use App\Models\Food;
+
+class FoodsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-
-        return view('dashboard', compact('users'));
+        //
     }
 
     /**
@@ -38,12 +36,16 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $meal = new Meal();
-        $meal->name = $request->name;
-        $meal->user_id = $request->user_id; 
-        
-        $meal->save();
-        // return redirect();
+        $food = New Food();
+
+        $food->name = $request->name;
+        $food->carbohydrates = $request->carbohydrates;
+        $food->protein = $request->protein;
+        $food->fat = $request->fat;
+
+        $food->save();
+
+        return redirect()->back();
     }
 
     /**
