@@ -33,7 +33,7 @@ Edit Meal
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
+<br>
 @if ($meal->foods->isEmpty())
 <h3>{{ $meal->name }} has NO food</h3>
 @else

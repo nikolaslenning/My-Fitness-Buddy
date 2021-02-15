@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\User;
+use App\Models\Food;
 use App\Models\Meal;
 
 class MealsController extends Controller
@@ -88,8 +88,8 @@ class MealsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $foodID)
     {
-        //
+        
     }
 }

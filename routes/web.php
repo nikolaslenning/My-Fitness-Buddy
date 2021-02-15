@@ -42,4 +42,8 @@ Route::post('users/{user}/meals', [MealsController::class, 'store'])->middleware
 
 Route::resource('meals', MealsController::class)->middleware(['auth']);
 
-Route::post('meals/{meal}/foods', [FoodsController::class, 'store'])->middleware(['auth']);
+Route::resource('meals.foods', FoodsController::class)->middleware(['auth']);
+
+// Route::post('meals/{meal}/foods', [FoodsController::class, 'store'])->middleware(['auth']);
+
+// Route::delete('meals/{meal}/foods/{food}', [FoodsController::class, 'destroy'])->middleware(['auth']);
