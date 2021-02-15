@@ -13,7 +13,7 @@ class Food extends Model
         'name', "carbohydrates", 'protein', 'fat'
     ];
 
-    public function user()
+    public function meal()
     {
        return $this->belongsTo("App\Models\Meal");
     //    return $this->belongsTo(User::class);

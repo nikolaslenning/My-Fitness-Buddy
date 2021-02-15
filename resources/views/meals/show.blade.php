@@ -5,7 +5,7 @@ Edit Meal
 @stop
 
 @section('content')
-<h4>Add Foods to Meal</h4>
+<h4>Add Foods to {{ $meal->name }}</h4>
 <hr>
 <form action='/meals/{{ $meal->id }}/foods' method='POST'>
 {{ csrf_field() }}
@@ -27,7 +27,7 @@ Edit Meal
     </fieldset>
 
     <fieldset class="field-group">
-        <label for="fats">Fat</label>
+        <label for="fat">Fat</label>
         <textarea class="form-control" name="fat" rows="1"></textarea>
     </fieldset>
 

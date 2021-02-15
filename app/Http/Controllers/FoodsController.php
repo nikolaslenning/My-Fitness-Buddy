@@ -42,6 +42,7 @@ class FoodsController extends Controller
         $food->carbohydrates = $request->carbohydrates;
         $food->protein = $request->protein;
         $food->fat = $request->fat;
+        $food->meal_id = $request->meal_id;
 
         $food->save();
 
