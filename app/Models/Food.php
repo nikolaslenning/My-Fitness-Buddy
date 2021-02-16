@@ -18,4 +18,9 @@ class Food extends Model
        return $this->belongsTo("App\Models\Meal");
     //    return $this->belongsTo(User::class);
     }
+
+    public function calories() 
+    {
+       return (($this->protein * 4) + ($this->fat * 9) + ($this->carbohydrates * 4));
+    }
 }

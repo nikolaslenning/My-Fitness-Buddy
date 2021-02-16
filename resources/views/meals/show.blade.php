@@ -5,8 +5,13 @@ Edit Meal
 @stop
 
 @section('content')
-<h4>Add Foods to {{ $meal->name }}</h4>
+<div>
+<h3>{{ $meal->name }} Stats</h3>
+<span>{{ $meal->mealCalories() }}</span>
+</div>
+
 <hr>
+<h4>Add Foods to {{ $meal->name }}</h4>
 <form action='/meals/{{ $meal->id }}/foods' method='POST'>
     {{ csrf_field() }}
     <input type="hidden" name="meal_id" value="{{ $meal->id }}" />
@@ -44,6 +49,7 @@ Edit Meal
         <pre>Carbs: {{ $food->carbohydrates }}</pre>
         <pre>Protein: {{ $food->protein }}</pre>
         <pre>Fat: {{ $food->fat }}</pre>
+        <pre>Calories: {{ $food->calories( $food->protein,  $food->fat,  $food->carbohydrates) }}</pre>
         <form action="/meals/{{ $meal->id}}/foods/{{ $food->id }}" method="post">
             {{ csrf_field() }}
 
