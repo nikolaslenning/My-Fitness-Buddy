@@ -26,7 +26,9 @@ class Meal extends Model
 
     public function mealCalories() 
     {
-        return $this->foods;
+        return $this->foods->reduce(function($total, $food){
+           return $total += $food->calories();
+        }, 0);
     }
 
 

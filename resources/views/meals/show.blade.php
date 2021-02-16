@@ -7,7 +7,7 @@ Edit Meal
 @section('content')
 <div>
 <h3>{{ $meal->name }} Stats</h3>
-<span>{{ $meal->mealCalories() }}</span>
+<span>Total Calories: {{ $meal->mealCalories() }}</span>
 </div>
 
 <hr>
