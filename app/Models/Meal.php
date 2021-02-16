@@ -9,27 +9,32 @@ class Meal extends Model
 {
     use HasFactory;
 
-    public function foods() 
+    public function foods()
     {
-       return $this->hasMany(Food::class);
+        return $this->hasMany(Food::class);
     }
 
-    protected $fillable=[
+    protected $fillable = [
         'name'
     ];
 
     public function user()
     {
-       return $this->belongsTo("App\Models\User");
-    //    return $this->belongsTo(User::class);
+        return $this->belongsTo("App\Models\User");
+        //    return $this->belongsTo(User::class);
     }
 
-    public function mealCalories() 
+    public function mealCalories()
     {
-        return $this->foods->reduce(function($total, $food){
-           return $total += $food->calories();
+        return $this->foods->reduce(function ($total, $food) {
+            return $total += $food->calories();
         }, 0);
     }
 
-
+    public function meals()
+    {
+        return $this->foods->reduce(function ($total, $food) {
+            return $total += $food->protein;
+        }, 0);
+    }
 }

@@ -8,6 +8,8 @@ Edit Meal
 <div>
 <h3>{{ $meal->name }} Stats</h3>
 <span>Total Calories: {{ $meal->mealCalories() }}</span>
+<br>
+<span>Protein Total: {{ $meal->meals() }}</span>
 </div>
 
 <hr>
