@@ -9,7 +9,11 @@ Edit Meal
 <h3>{{ $meal->name }} Stats</h3>
 <span>Total Calories: {{ $meal->mealCalories() }}</span>
 <br>
-<span>Protein Total: {{ $meal->meals() }}</span>
+<span>Protein Total: {{ $meal->protein() }}</span>
+<br>
+<span>Carb Total: {{ $meal->carbs() }}</span>
+<br>
+<span>Fat Total: {{ $meal->fats() }}</span>
 </div>
 
 <hr>

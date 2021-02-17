@@ -31,10 +31,25 @@ class Meal extends Model
         }, 0);
     }
 
-    public function meals()
+    public function protein()
     {
         return $this->foods->reduce(function ($total, $food) {
             return $total += $food->protein;
         }, 0);
     }
+    
+    public function carbs()
+    {
+        return $this->foods->reduce(function ($total, $food) {
+            return $total += $food->carbohydrates;
+        }, 0);
+    }
+    
+    public function fats()
+    {
+        return $this->foods->reduce(function ($total, $food) {
+            return $total += $food->fat;
+        }, 0);
+    }
 }
+
