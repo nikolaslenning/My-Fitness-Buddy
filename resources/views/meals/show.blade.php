@@ -51,7 +51,7 @@ Edit Meal
 <ul class="form-group">
     @foreach ($meal->foods as $food)
     <li class="list-group-item">
-        <span><b>Name: {{ $food->name }} <br> FOOD-ID: {{ $food->meal_id}} <br>meal_id: {{ $meal->id }}</b></span>
+        <span><b>Food: {{ $food->name }} <br></b></span>
         <pre>Carbs: {{ $food->carbohydrates }}</pre>
         <pre>Protein: {{ $food->protein }}</pre>
         <pre>Fat: {{ $food->fat }}</pre>

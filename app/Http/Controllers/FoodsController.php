@@ -36,7 +36,18 @@ class FoodsController extends Controller
      */
     public function store(Request $request)
     {
-        $food = New Food();
+
+
+        // $food =  Food::create($validated);
+        $food = new Food();
+
+        $request->validate([
+            'name' => 'required|string|max:55',
+            'carbohydrates' => 'required|integer',
+            'protein' => 'required|integer',
+            'fat' => 'required|integer',
+            'meal_id' => 'required',
+        ]);
 
         $food->name = $request->name;
         $food->carbohydrates = $request->carbohydrates;
@@ -44,9 +55,10 @@ class FoodsController extends Controller
         $food->fat = $request->fat;
         $food->meal_id = $request->meal_id;
 
+        // $food->save();
         $food->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'food created successfully.');
     }
 
     /**

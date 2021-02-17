@@ -10,7 +10,7 @@ class Food extends Model
    
 
     protected $fillable=[
-        'name', "carbohydrates", 'protein', 'fat'
+        'name', "carbohydrates", 'protein', 'fat', "meal_id"
     ];
 
     public function meal()
