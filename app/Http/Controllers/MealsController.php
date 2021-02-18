@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Food;
 use App\Models\Meal;
 
+use Validator;
+
 class MealsController extends Controller
 {
     /**

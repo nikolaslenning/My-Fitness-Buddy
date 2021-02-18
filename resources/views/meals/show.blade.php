@@ -45,6 +45,22 @@ Edit Meal
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <br>
+@if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@endif
+<br>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<br>
 @if ($meal->foods->isEmpty())
 <h3>{{ $meal->name }} has NO food</h3>
 @else

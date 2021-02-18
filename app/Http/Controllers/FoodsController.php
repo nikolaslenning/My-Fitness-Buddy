@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Food;
+use App\Models\Meal;
 
 class FoodsController extends Controller
 {
@@ -34,31 +35,42 @@ class FoodsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Meal $meal)
     {
-
-
-        // $food =  Food::create($validated);
-        $food = new Food();
-
-        $request->validate([
-            'name' => 'required|string|max:55',
-            'carbohydrates' => 'required|integer',
+        $this->validate($request, [
+            'name' => 'required|string',
             'protein' => 'required|integer',
-            'fat' => 'required|integer',
-            'meal_id' => 'required',
+            'carbohydrates' => 'required|integer',
+            'fat' => 'required|integer'
         ]);
 
-        $food->name = $request->name;
-        $food->carbohydrates = $request->carbohydrates;
-        $food->protein = $request->protein;
-        $food->fat = $request->fat;
-        $food->meal_id = $request->meal_id;
+        $food = new Food($request->all());
+        $meal->foods()->save($food);
+        
 
+        return back()->with('message','status food created successfully.');
+
+        // $food =  Food::create($validated);
+        // $food = new Food();
+
+        // $request->validate([
+        //     'name' => 'required|string|max:55',
+        //     'carbohydrates' => 'required|integer',
+        //     'protein' => 'required|integer',
+        //     'fat' => 'required|integer',
+        //     'meal_id' => 'required',
+        // ]);
+
+        // $food->name = $request->name;
+        // $food->carbohydrates = $request->carbohydrates;
+        // $food->protein = $request->protein;
+        // $food->fat = $request->fat;
+        // $food->meal_id = $request->meal_id;
+
+        // // $food->save();
         // $food->save();
-        $food->save();
 
-        return redirect()->back()->with('success', 'food created successfully.');
+        // return redirect()->back()->with('success', 'food created successfully.');
     }
 
     /**
