@@ -35,6 +35,25 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
+                        <form method="GET" action="{{ route('meals.index') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('meals.index')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Meals') }}
+                            </x-dropdown-link>
+                        </form>
+                        <form method="GET" action="{{ route('meals.create') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('meals.create')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Create') }}
+                            </x-dropdown-link>
+                        </form>
+                        <hr>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
@@ -44,6 +63,9 @@
                                 {{ __('Logout') }}
                             </x-dropdown-link>
                         </form>
+                   
+                        
+                        
                     </x-slot>
                 </x-dropdown>
             </div>

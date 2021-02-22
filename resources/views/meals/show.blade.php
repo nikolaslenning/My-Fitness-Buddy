@@ -6,6 +6,7 @@ Edit Meal
 
 @section('content')
 <div>
+    
 <h3>{{ $meal->name }} Stats</h3>
 <span>Total Calories: {{ $meal->mealCalories() }}</span>
 <br>
@@ -17,7 +18,7 @@ Edit Meal
 </div>
 
 <hr>
-<h4>Add Foods to {{ $meal->name }}</h4>
+<h4>Add Foods in {{ $meal->name }}</h4>
 <form action='/meals/{{ $meal->id }}/foods' method='POST'>
     {{ csrf_field() }}
     <input type="hidden" name="meal_id" value="{{ $meal->id }}" />
