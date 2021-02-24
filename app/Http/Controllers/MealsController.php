@@ -90,8 +90,12 @@ class MealsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, $foodID)
+    public function destroy($id)
     {
-        
+        $meal = Meal::find($id);
+
+        $meal->foods()->delete();
+        $meal->delete();
+        return back()->with('deleteMessage','Meal and foods deleted successfully.');
     }
 }

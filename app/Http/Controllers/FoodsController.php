@@ -45,10 +45,9 @@ class FoodsController extends Controller
         ]);
 
         $food = new Food($request->all());
-        $meal->foods()->save($food);
-        
+        $meal->foods()->save($food);        
 
-        return back()->with('message','status food created successfully.');
+        return back()->with('message','Food created successfully.');
 
         // $food =  Food::create($validated);
         // $food = new Food();

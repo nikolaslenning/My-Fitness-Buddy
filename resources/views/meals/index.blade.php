@@ -50,11 +50,11 @@ Meal Index
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Created
                         </th>
-                        <!-- <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Role
-              </th> -->
+                       <th scope="col" class="relative px-6 py-3">
+                            <span class="sr-only">Edit Button</span>
+                        </th>
                         <th scope="col" class="relative px-6 py-3">
-                            <span class="sr-only">Edit</span>
+                            <span class="sr-only">Delete Button</span>
                         </th>
                     </tr>
                 </thead>
@@ -62,9 +62,9 @@ Meal Index
                 <tbody class="bg-white divide-y divide-gray-200">
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="flex items-center">
+                            <div class="flex items-left">
 
-                                <div class="ml-4">
+                                <div class="ml-0">
                                     <div class="text-sm font-medium text-gray-900">
                                         {{ $meal->name }}
                                     </div>
@@ -81,12 +81,19 @@ Meal Index
                         <td class="px-6 py-4 whitespace-nowrap">
                             {{ $meal->created_at->format('g:i a \o\n l, F jS') }}
                         </td>
-                        <!-- <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                Admin
-              </td> -->
-                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                      
+                        <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
                             <a type='button' class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="/meals/{{ $meal->id }}">Edit</a>
                         </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
+                                    <form action="/meals/{{ $meal->id}}" method="post">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button type="submit" class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" formmethod="post">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </td>
                     </tr>
 
                     <!-- More items... -->
@@ -97,4 +104,9 @@ Meal Index
     </div>
 </div>
 </div>
+@if(session()->has('deleteMessage'))
+    <div class="alert alert-success">
+        {{ session()->get('deleteMessage') }}
+    </div>
+    @endif
 @stop
