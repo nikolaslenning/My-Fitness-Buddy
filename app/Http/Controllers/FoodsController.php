@@ -116,6 +116,6 @@ class FoodsController extends Controller
     {
         Food::destroy($foodID);
 
-        return redirect()->back();
+        return redirect()->back()->with('deleteFood','Food deleted successfully.');
     }
 }

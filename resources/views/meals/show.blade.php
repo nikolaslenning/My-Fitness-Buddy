@@ -39,9 +39,7 @@ Edit Meal
                                         <div class="text-sm font-medium text-gray-900">
                                             {{ $meal->name }}
                                         </div>
-                                        <!-- <div class="text-sm text-gray-500">
-                      jane.cooper@example.com
-                    </div> -->
+                                        
                                     </div>
                                 </div>
                             </td>
@@ -78,7 +76,7 @@ Edit Meal
     
     <br>
     @if ($meal->foods->isEmpty())
-    <h3>{{ $meal->name }} has NO food</h3>
+    <h3 class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">{{ $meal->name }} has NO food</h3>
     @else
 
 
@@ -149,7 +147,7 @@ Edit Meal
                                     <form action="/meals/{{ $meal->id}}/foods/{{ $food->id }}" method="post">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
-                                        <button type="submit" class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" formmethod="post">
+                                        <button type="submit" class="ml-5 bg-white inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" formmethod="post">
                                             Delete
                                         </button>
                                     </form>
@@ -163,6 +161,11 @@ Edit Meal
                 </div>
             </div>
         </div>
+    </div>
+    @endif
+    @if(session()->has('deleteFood'))
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
+        {{ session()->get('deleteFood') }}
     </div>
     @endif
     <hr>
@@ -223,13 +226,13 @@ Edit Meal
     <!-- <hr> -->
 
     @if(session()->has('message'))
-    <div class="alert alert-success">
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
         {{ session()->get('message') }}
     </div>
     @endif
     <br>
     @if ($errors->any())
-    <div class="alert alert-danger">
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
         <ul>
             @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>

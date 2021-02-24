@@ -41,7 +41,7 @@
                             <x-dropdown-link :href="route('meals.index')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Meals') }}
+                                {{ __('All Meals') }}
                             </x-dropdown-link>
                         </form>
                         <form method="GET" action="{{ route('meals.create') }}">
@@ -50,7 +50,7 @@
                             <x-dropdown-link :href="route('meals.create')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Create') }}
+                                {{ __('Create Meal') }}
                             </x-dropdown-link>
                         </form>
                         <hr>

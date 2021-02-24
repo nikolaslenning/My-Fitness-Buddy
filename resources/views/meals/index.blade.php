@@ -14,8 +14,7 @@ Meal Index
 
 @section('content')
 <h2 class="text-center">All Meals</h2>
-<hr>
-<br>
+
 
 <!-- <ul class="list-group">
     @foreach ($meals as $meal)
@@ -83,13 +82,13 @@ Meal Index
                         </td>
                       
                         <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
-                            <a type='button' class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="/meals/{{ $meal->id }}">Edit</a>
+                            <a type='button' class="ml-5 bg-white inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="/meals/{{ $meal->id }}">Edit</a>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium">
                                     <form action="/meals/{{ $meal->id}}" method="post">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
-                                        <button type="submit" class="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" formmethod="post">
+                                        <button type="submit" class="ml-5 bg-white inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" formmethod="post">
                                             Delete
                                         </button>
                                     </form>
@@ -104,9 +103,9 @@ Meal Index
     </div>
 </div>
 </div>
-@if(session()->has('deleteMessage'))
-    <div class="alert alert-success">
-        {{ session()->get('deleteMessage') }}
+@if(session()->has('deleteFood'))
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
+        {{ session()->get('deleteFood') }}
     </div>
     @endif
 @stop
