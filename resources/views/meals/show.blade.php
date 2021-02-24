@@ -168,7 +168,22 @@ Edit Meal
         {{ session()->get('deleteFood') }}
     </div>
     @endif
-    <hr>
+    @if(session()->has('message'))
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
+        {{ session()->get('message') }}
+    </div>
+    @endif
+    <br>
+    @if ($errors->any())
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    
     <div class="ml-5 mt-5 sm:mt-5">
         <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
@@ -213,7 +228,7 @@ Edit Meal
 
                             </div>
                         </div>
-                        <div class="px-4 py-3 bg-gray-50 text-left sm:px-6">
+                        <div class="px-4 py-3 bg-white text-left sm:px-6">
                             <button type="submit" class=" inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                 Save
                             </button>
@@ -223,23 +238,8 @@ Edit Meal
             </div>
         </div>
     </div>
-    <!-- <hr> -->
-
-    @if(session()->has('message'))
-    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative">
-        {{ session()->get('message') }}
-    </div>
-    @endif
-    <br>
-    @if ($errors->any())
-    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+    
+    
 
     @stop
     
