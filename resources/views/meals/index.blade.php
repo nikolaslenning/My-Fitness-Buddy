@@ -15,25 +15,6 @@ Meal Index
 @section('content')
 <h2 class="text-center">All Meals</h2>
 
-
-<!-- <ul class="list-group">
-    @foreach ($meals as $meal)
-    <li class="list-group-item">
-        <a href="/meals/{{ $meal->id }}">Edit</a>
-        <div class="inline-block">
-            <div> {{ $meal->name }}</div>
-            
-            <div class="pull-right">
-               Created: {{ $meal->created_at->format('g:i a \o\n l, F jS') }}
-            </div>
-
-        </div>
-    </li>
-    <br>
-    
-    @endforeach
-</ul> -->
-
 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
